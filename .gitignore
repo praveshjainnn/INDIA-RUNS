@@ -1,0 +1,34 @@
+# Python Virtual Environment
+.venv/
+venv/
+env/
+ENV/
+
+# Python Cache / Compiled Files
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.ipynb_checkpoints/
+
+# macOS Files
+.DS_Store
+__MACOSX/
+
+# Node Modules
+node_modules/
+**/node_modules/
+
+# Environment Files
+.env
+.env*.local
+
+# Next.js build output
+.next/
+out/
+build/
+
+# Large Datasets / Submissions (over GitHub size limit)
+[PUB] India_runs_data_and_ai_challenge/India_runs_data_and_ai_challenge/candidates.jsonl
+*.jsonl

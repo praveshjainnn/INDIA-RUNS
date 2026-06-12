@@ -1,0 +1,1 @@
+# RecruiterIQ models package

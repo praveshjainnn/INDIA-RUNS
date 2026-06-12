@@ -1,0 +1,452 @@
+/* RecruiterIQ — Custom CSS
+   Deep navy / electric blue / premium glassmorphism theme
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+
+/* ── Global Reset ────────────────────────────────────────────────────────── */
+:root {
+    --primary:     #1A1F36;
+    --accent:      #4F6EF7;
+    --accent-light:#7B96FA;
+    --success:     #22C55E;
+    --warning:     #F59E0B;
+    --danger:      #EF4444;
+    --muted:       #9CA3AF;
+    --bg:          #F0F2F8;
+    --card-bg:     #FFFFFF;
+    --text-primary:#111827;
+    --text-secondary:#6B7280;
+    --border:      rgba(79,110,247,0.15);
+    --shadow-sm:   0 1px 3px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.04);
+    --shadow-md:   0 4px 20px rgba(26,31,54,0.12), 0 1px 4px rgba(0,0,0,0.06);
+    --shadow-lg:   0 8px 40px rgba(26,31,54,0.18);
+    --radius-card: 16px;
+    --radius-btn:  10px;
+    --radius-chip: 20px;
+}
+
+/* ── Base ────────────────────────────────────────────────────────────────── */
+html, body, [class*="css"] {
+    font-family: 'Inter', -apple-system, sans-serif !important;
+    color: var(--text-primary) !important;
+}
+
+/* Streamlit main container */
+.main .block-container {
+    padding: 1.5rem 2rem !important;
+    max-width: 1400px !important;
+}
+
+/* ── Header ──────────────────────────────────────────────────────────────── */
+.riq-header {
+    background: linear-gradient(135deg, var(--primary) 0%, #2D3572 100%);
+    border-radius: var(--radius-card);
+    padding: 1.5rem 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: var(--shadow-lg);
+}
+
+.riq-header-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: white !important;
+    letter-spacing: -0.02em;
+    margin: 0;
+}
+
+.riq-header-subtitle {
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.65) !important;
+    margin: 0.25rem 0 0;
+}
+
+.riq-badge {
+    background: rgba(79,110,247,0.3);
+    color: var(--accent-light) !important;
+    border: 1px solid rgba(79,110,247,0.4);
+    border-radius: 100px;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+/* ── Cards ───────────────────────────────────────────────────────────────── */
+.riq-card {
+    background: var(--card-bg);
+    border-radius: var(--radius-card);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.riq-card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: rgba(79,110,247,0.3);
+    transform: translateY(-1px);
+}
+
+.riq-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-light));
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.riq-card:hover::before { opacity: 1; }
+
+/* ── Score Badge ─────────────────────────────────────────────────────────── */
+.score-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 100px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.score-badge.strong  { background: rgba(34,197,94,0.12);  color: #16A34A; border: 1px solid rgba(34,197,94,0.3); }
+.score-badge.good    { background: rgba(79,110,247,0.12); color: var(--accent); border: 1px solid rgba(79,110,247,0.3); }
+.score-badge.possible{ background: rgba(245,158,11,0.12); color: #D97706; border: 1px solid rgba(245,158,11,0.3); }
+.score-badge.stretch { background: rgba(156,163,175,0.12);color: #6B7280; border: 1px solid rgba(156,163,175,0.3); }
+
+/* ── Rank Badge ──────────────────────────────────────────────────────────── */
+.rank-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), #2D3572);
+    color: white !important;
+    font-weight: 700;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+}
+
+.rank-badge.top3 {
+    background: linear-gradient(135deg, #F59E0B, #EF4444);
+}
+
+/* ── Progress Bars ───────────────────────────────────────────────────────── */
+.score-bar-container {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin: 0.3rem 0;
+}
+
+.score-bar-label {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    width: 120px;
+    flex-shrink: 0;
+}
+
+.score-bar-track {
+    flex: 1;
+    height: 6px;
+    background: #E5E7EB;
+    border-radius: 100px;
+    overflow: hidden;
+}
+
+.score-bar-fill {
+    height: 100%;
+    border-radius: 100px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-light));
+    transition: width 0.6s ease;
+}
+
+.score-bar-pct {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--text-secondary);
+    width: 35px;
+    text-align: right;
+}
+
+/* ── Skill Chips ─────────────────────────────────────────────────────────── */
+.chip {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius-chip);
+    font-size: 0.72rem;
+    font-weight: 500;
+    margin: 0.15rem;
+    border: 1px solid;
+}
+
+.chip.must {
+    background: rgba(79,110,247,0.1);
+    color: var(--accent);
+    border-color: rgba(79,110,247,0.25);
+}
+
+.chip.nice {
+    background: rgba(245,158,11,0.1);
+    color: #D97706;
+    border-color: rgba(245,158,11,0.25);
+}
+
+.chip.matched {
+    background: rgba(34,197,94,0.1);
+    color: #16A34A;
+    border-color: rgba(34,197,94,0.25);
+}
+
+/* ── JD Panel ────────────────────────────────────────────────────────────── */
+.jd-panel {
+    background: linear-gradient(160deg, #F8F9FF 0%, #EEF1FF 100%);
+    border: 1px solid rgba(79,110,247,0.2);
+    border-radius: var(--radius-card);
+    padding: 1.25rem;
+}
+
+.jd-panel h4 {
+    color: var(--primary) !important;
+    font-size: 0.8rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.06em !important;
+    margin: 0.75rem 0 0.4rem !important;
+}
+
+.jd-role-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary) !important;
+    margin-bottom: 0.5rem;
+}
+
+.jd-meta {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.jd-meta span {
+    background: rgba(26,31,54,0.06);
+    padding: 0.2rem 0.5rem;
+    border-radius: 6px;
+}
+
+/* ── Rationale Box ───────────────────────────────────────────────────────── */
+.rationale-box {
+    background: linear-gradient(135deg, #F8F9FF, #EEF1FF);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    padding: 0.75rem 1rem;
+    margin: 0.75rem 0;
+    font-size: 0.875rem;
+    color: var(--text-primary);
+    font-style: italic;
+}
+
+.probe-box {
+    background: linear-gradient(135deg, #FFFBEB, #FEF3C7);
+    border-left: 3px solid var(--warning);
+    border-radius: 0 8px 8px 0;
+    padding: 0.6rem 1rem;
+    margin: 0.5rem 0;
+    font-size: 0.825rem;
+    color: #92400E;
+}
+
+/* ── Timeline ────────────────────────────────────────────────────────────── */
+.timeline {
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0.4rem;
+    top: 0.5rem;
+    bottom: 0.5rem;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--accent), rgba(79,110,247,0.2));
+}
+
+.timeline-entry {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.timeline-entry::before {
+    content: '';
+    position: absolute;
+    left: -1.35rem;
+    top: 0.4rem;
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid white;
+    box-shadow: 0 0 0 2px var(--accent);
+}
+
+.timeline-title {
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: var(--text-primary);
+}
+
+.timeline-meta {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+/* ── Processing State ────────────────────────────────────────────────────── */
+.processing-card {
+    background: var(--card-bg);
+    border-radius: var(--radius-card);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-lg);
+    padding: 2.5rem;
+    text-align: center;
+}
+
+.processing-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: spin 2s linear infinite;
+    display: inline-block;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+.step-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 1rem;
+    border-radius: 10px;
+    margin: 0.35rem 0;
+    font-size: 0.875rem;
+    transition: all 0.3s;
+}
+
+.step-item.done    { background: rgba(34,197,94,0.08);  color: #16A34A; }
+.step-item.active  { background: rgba(79,110,247,0.08); color: var(--accent); font-weight: 500; }
+.step-item.pending { color: var(--muted); }
+
+/* ── Buttons ─────────────────────────────────────────────────────────────── */
+.stButton > button {
+    border-radius: var(--radius-btn) !important;
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 600 !important;
+    transition: all 0.2s !important;
+}
+
+.stButton > button[kind="primary"] {
+    background: linear-gradient(135deg, var(--accent), #3D5BDB) !important;
+    border: none !important;
+    box-shadow: 0 4px 14px rgba(79,110,247,0.4) !important;
+}
+
+.stButton > button[kind="primary"]:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 6px 20px rgba(79,110,247,0.5) !important;
+}
+
+/* ── Metrics ─────────────────────────────────────────────────────────────── */
+.metric-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+}
+
+.metric-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--accent);
+    display: block;
+    line-height: 1;
+}
+
+.metric-label {
+    font-size: 0.72rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: 0.35rem;
+}
+
+/* ── Sidebar ─────────────────────────────────────────────────────────────── */
+[data-testid="stSidebar"] {
+    background: linear-gradient(160deg, #F0F2F8 0%, #E8ECFF 100%) !important;
+}
+
+[data-testid="stSidebar"] .block-container {
+    padding: 1rem !important;
+}
+
+/* ── Divider ─────────────────────────────────────────────────────────────── */
+.riq-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    margin: 1rem 0;
+}
+
+/* ── Animations ──────────────────────────────────────────────────────────── */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-in {
+    animation: fadeInUp 0.4s ease forwards;
+}
+
+/* ── Streamlit overrides ─────────────────────────────────────────────────── */
+.stTextArea textarea {
+    border-radius: 12px !important;
+    border-color: var(--border) !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+.stTextArea textarea:focus {
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 0 3px rgba(79,110,247,0.15) !important;
+}
+
+div[data-testid="stFileUploader"] {
+    border-radius: 12px !important;
+}
+
+.stProgress > div > div {
+    background: linear-gradient(90deg, var(--accent), var(--accent-light)) !important;
+    border-radius: 100px !important;
+}
+
+/* Hide Streamlit branding */
+#MainMenu, footer { visibility: hidden; }

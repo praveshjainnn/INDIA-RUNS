@@ -130,4 +130,6 @@ To utilize the Grok API:
 3. Input your **xAI API Key** (starts with `xai-`).
 4. Key storage is handled securely in local browser memory (`localStorage`), only passing directly to the local backend during active scoring.
 #   I N D I A . R U N S  
+ #   I N D I A . R U N S  
+ #   I N D I A . R U N S  
  
